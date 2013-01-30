@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent">
+
+
+    <CalendarView
+        android:layout_width="936dp"
+        android:layout_height="348dp"
+        android:id="@+id/calendarView"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="136dp"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="91dp"/>
+
+    <TimePicker
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/timePicker"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="274dp"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="495dp"/>
+
+    <DatePicker
+        android:layout_width="133dp"
+        android:layout_height="124dp"
+        android:id="@+id/datePicker"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="719dp"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="485dp"/>
+
+</RelativeLayout>

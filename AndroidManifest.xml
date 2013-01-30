@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+          package="com.bdc.android.helloandroid"
+          android:versionCode="3"
+          android:versionName="1.3">
+
+    <uses-sdk android:minSdkVersion="8"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <application
+        android:icon="@drawable/unimobi_48"
+        android:label="UniMoBI">
+        <activity
+            android:name="MyActivity"
+            android:label="UniMoBI - Universal Mobile BI">
+            <uses-permission
+                android:name="android.permission.INTERNET"
+                android:theme="@android:style/Theme.NoTitleBar.Fullscreen"/>
+        </activity>
+        <activity
+            android:name="Calendar"
+            android:label="US Heatmap"/>
+        <activity
+            android:name=".SplashScreen"
+            android:label="UniMobi - Universal Mobile BI"
+            android:theme="@style/Theme.Splash"
+            android:noHistory="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".Login"
+            android:label="Sign On"
+            android:noHistory="true"/>
+        <!-- <activity android:name=".ImageMenu" android:label="Image Menu"/> -->
+        <activity
+            android:name=".MapActivity"
+            android:label="US Heatmap"/>
+        <uses-permission android:name="android.permission.INTERNET"/>
+    </application>
+
+</manifest>

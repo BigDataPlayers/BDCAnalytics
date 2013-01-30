@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent">
+
+    <Button
+            android:layout_width="133dp"
+            android:layout_height="wrap_content"
+            android:text="Chart"
+            android:id="@+id/button"
+            android:layout_alignParentLeft="true" android:layout_marginLeft="7dp" android:layout_alignParentTop="true"
+            android:layout_marginTop="22dp"/>
+    <Button
+            android:layout_width="127dp"
+            android:layout_height="wrap_content"
+            android:text="Map"
+            android:id="@+id/button1"
+            android:layout_alignParentLeft="true" android:layout_marginLeft="158dp"
+            android:layout_alignTop="@+id/button"/>
+    <ImageView
+            android:layout_width="800dp"
+            android:layout_height="800dp"
+            android:id="@+id/imageView"
+            android:layout_alignParentLeft="true" android:layout_marginLeft="39dp" android:layout_alignParentTop="true"
+            android:layout_marginTop="109dp"/>
+    <ImageButton
+            android:layout_width="61dp"
+            android:layout_height="wrap_content"
+            android:src="@drawable/tool"
+            android:id="@+id/imageButton" android:layout_alignParentLeft="true" android:layout_marginLeft="491dp"
+            android:layout_alignParentTop="true" android:layout_marginTop="511dp"/>
+</RelativeLayout>
