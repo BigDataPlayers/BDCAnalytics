@@ -74,7 +74,7 @@
     <ImageButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/worldmap"
+            android:src="@drawable/treemap"
             android:id="@+id/imageButton_Map"
             android:layout_marginTop="18dp"
             android:layout_toRightOf="@id/imageButton_Pie"/>

@@ -23,7 +23,8 @@ public class SplashScreen extends Activity {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        Intent goToNextActivity = new Intent(getApplicationContext(), Login.class);
+//        Intent goToNextActivity = new Intent(getApplicationContext(), Login.class);
+        Intent goToNextActivity = new Intent(getApplicationContext(), MyActivity.class);
         startActivity(goToNextActivity);
 
     }

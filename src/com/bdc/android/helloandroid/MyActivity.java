@@ -84,7 +84,7 @@ public class MyActivity extends Activity implements View.OnTouchListener
         WebSettings webSettings = web.getSettings();
         webSettings.setJavaScriptEnabled(true);
         web.setVisibility(View.GONE);
-        web.loadUrl("http://192.168.6.23:8080/ChartType=bubbleChart");
+        web.loadUrl(AndroidConstants.ANALYTICS_SERVER + "/ChartType=bubbleChart");
 
 
         ibBubble = (ImageButton) findViewById(R.id.imageButton_Bubble);
@@ -101,8 +101,8 @@ public class MyActivity extends Activity implements View.OnTouchListener
         ibPie.setOnClickListener(new ButtonListener("pieChart"));
         ibBar.setOnClickListener(new ButtonListener("columnChart"));
         ibArea.setOnClickListener(new ButtonListener("areaChart"));
-        ibMap.setOnClickListener(new ButtonListener("geoChart"));
-        ibDashBoard.setOnClickListener(new ButtonListener("DashBoard"));
+        ibMap.setOnClickListener(new ButtonListener("treeMap"));
+        ibDashBoard.setOnClickListener(new ButtonListener("dashBoard"));
         ibCandle.setOnClickListener(new ButtonListener("candleChart"));
 
     }
@@ -110,7 +110,7 @@ public class MyActivity extends Activity implements View.OnTouchListener
 
     void downloadFile(String charType) {
 
-        System.out.println("Request URL:: http://ec2-23-22-121-65.compute-1.amazonaws.com/ChartType=" + charType);
+        System.out.println("Request URL:: "+ AndroidConstants.ANALYTICS_SERVER +"/ChartType=" + charType);
         if (charType.equals("geoChart")) {
             Intent gotoNextActivity = new Intent(getApplicationContext(), MapActivity.class);
             // Intent goToNextActivity = new Intent(getApplicationContext(), ImageMenu.class);
@@ -120,7 +120,7 @@ public class MyActivity extends Activity implements View.OnTouchListener
             web.setVisibility(View.VISIBLE);
             web.setVerticalScrollBarEnabled(true);
             web.setHorizontalScrollBarEnabled(true);
-            web.loadUrl("http://ec2-23-22-121-65.compute-1.amazonaws.com/ChartType=" + charType);
+            web.loadUrl(AndroidConstants.ANALYTICS_SERVER + "/ChartType=" + charType);
 
         }
 
