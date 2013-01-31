@@ -22,7 +22,7 @@ public class Login extends Activity {
         button.setOnClickListener(new Button.OnClickListener() {
             public void onClick(View view) {
                 //Intent gotoNextActivity = new Intent(getApplicationContext(),MyActivity.class);
-               Intent gotoNextActivity = new Intent(getApplicationContext(), Calendar.class);
+               Intent gotoNextActivity = new Intent(getApplicationContext(), AppointmentCalendar.class);
                 startActivity(gotoNextActivity);
 
             }

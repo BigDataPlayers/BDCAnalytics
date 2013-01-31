@@ -19,12 +19,13 @@ public class SplashScreen extends Activity {
         setContentView(R.layout.splashscreen);
 
         try {
-        Thread.sleep(1000);
+        Thread.sleep(10);
         } catch (Exception e) {
             e.printStackTrace();
         }
 //        Intent goToNextActivity = new Intent(getApplicationContext(), Login.class);
-        Intent goToNextActivity = new Intent(getApplicationContext(), MyActivity.class);
+//        Intent goToNextActivity = new Intent(getApplicationContext(), MyActivity.class);
+        Intent goToNextActivity = new Intent(getApplicationContext(), AppointmentCalendar.class);
         startActivity(goToNextActivity);
 
     }

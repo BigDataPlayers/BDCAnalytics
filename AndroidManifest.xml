@@ -17,8 +17,8 @@
                 android:theme="@android:style/Theme.NoTitleBar.Fullscreen"/>
         </activity>
         <activity
-            android:name="Calendar"
-            android:label="US Heatmap"/>
+            android:name=".AppointmentCalendar"
+            android:label="Open Slots"/>
         <activity
             android:name=".SplashScreen"
             android:label="UniMobi - Universal Mobile BI"
