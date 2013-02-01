@@ -16,10 +16,7 @@
                 android:name="android.permission.INTERNET"
                 android:theme="@android:style/Theme.NoTitleBar.Fullscreen"/>
         </activity>
-        <activity
-            android:name=".AppointmentCalendar"
-            android:label="Appointments"/>
-        <activity
+         <activity
             android:name=".SplashScreen"
             android:label="UniMobi - Universal Mobile BI"
             android:theme="@style/Theme.Splash"
