@@ -1,4 +1,4 @@
-package com.bdc.android.helloandroid;
+package com.bdc.Analytics.AndroidClient;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -21,8 +21,8 @@ public class Login extends Activity {
         Button button =(Button) findViewById(R.id.button);
         button.setOnClickListener(new Button.OnClickListener() {
             public void onClick(View view) {
-                //Intent gotoNextActivity = new Intent(getApplicationContext(),MyActivity.class);
-               Intent gotoNextActivity = new Intent(getApplicationContext(), AppointmentCalendar.class);
+                Intent gotoNextActivity = new Intent(getApplicationContext(),MyActivity.class);
+//               Intent gotoNextActivity = new Intent(getApplicationContext(), AppointmentCalendar.class);
                 startActivity(gotoNextActivity);
 
             }

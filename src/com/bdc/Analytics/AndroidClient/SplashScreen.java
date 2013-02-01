@@ -1,4 +1,4 @@
-package com.bdc.android.helloandroid;
+package com.bdc.Analytics.AndroidClient;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -24,8 +24,8 @@ public class SplashScreen extends Activity {
             e.printStackTrace();
         }
 //        Intent goToNextActivity = new Intent(getApplicationContext(), Login.class);
-//        Intent goToNextActivity = new Intent(getApplicationContext(), MyActivity.class);
-        Intent goToNextActivity = new Intent(getApplicationContext(), AppointmentCalendar.class);
+        Intent goToNextActivity = new Intent(getApplicationContext(), MyActivity.class);
+//        Intent goToNextActivity = new Intent(getApplicationContext(), AppointmentCalendar.class);
         startActivity(goToNextActivity);
 
     }

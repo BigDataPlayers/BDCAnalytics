@@ -1,4 +1,4 @@
-package com.bdc.android.helloandroid;
+package com.bdc.Analytics.AndroidClient;
 
 import android.app.Activity;
 import android.os.Bundle;
