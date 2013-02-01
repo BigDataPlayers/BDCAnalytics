@@ -1,4 +1,4 @@
-package com.bdc.Analytics.AndroidClient;
+package com.bdc.analytics.androidClient;
 
 /* This stub is for using by IDE only. It is NOT the Manifest class actually packed into APK */
 public final class Manifest {

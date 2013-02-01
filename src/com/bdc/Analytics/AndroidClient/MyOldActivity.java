@@ -1,4 +1,4 @@
-package com.bdc.Analytics.AndroidClient;
+package com.bdc.analytics.androidClient;
 
 import android.app.Activity;
 import android.content.Intent;

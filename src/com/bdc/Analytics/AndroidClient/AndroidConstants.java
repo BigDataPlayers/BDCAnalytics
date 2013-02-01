@@ -1,4 +1,4 @@
-package com.bdc.Analytics.AndroidClient;
+package com.bdc.analytics.androidClient;
 
 /**
  * Created with IntelliJ IDEA.
