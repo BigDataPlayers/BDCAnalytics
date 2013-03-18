@@ -3,6 +3,7 @@ package com.bdc.analytics.androidClient;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import com.example.BDCAnalytics.R;
 
 /**
  * Created with IntelliJ IDEA.

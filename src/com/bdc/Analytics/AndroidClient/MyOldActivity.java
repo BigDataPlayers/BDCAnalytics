@@ -8,6 +8,7 @@ import android.view.View;
 import android.webkit.WebView;
 import android.widget.Button;
 import android.widget.LinearLayout;
+import com.example.BDCAnalytics.R;
 
 
 public class MyOldActivity extends Activity

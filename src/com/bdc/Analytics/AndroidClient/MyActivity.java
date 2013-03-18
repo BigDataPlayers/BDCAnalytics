@@ -17,6 +17,7 @@ import android.webkit.WebSettings;
 import android.webkit.WebView;
 
 import android.widget.*;
+import com.example.BDCAnalytics.R;
 
 
 public class MyActivity extends Activity implements View.OnTouchListener
