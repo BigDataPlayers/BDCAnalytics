@@ -3,14 +3,13 @@ package com.bdc.analytics.androidClient;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import com.example.BDCAnalytics.R;
 
 /**
  * Created with IntelliJ IDEA.
  * User: mahesh1
  * Date: 1/12/13
  * Time: 2:21 PM
- * To change this template use File | Settings | File Templates.
+ * To change this template use File | settings | File Templates.
  */
 public class SplashScreen extends Activity {
 

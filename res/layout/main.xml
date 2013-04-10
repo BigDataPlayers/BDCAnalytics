@@ -8,10 +8,10 @@
 
     <WebView
             android:layout_width="816dp"
-            android:layout_height="600dp"
+            android:layout_height="290dp"
             android:id="@+id/webView"
             android:layout_alignParentTop="true"
-            android:layout_marginTop="115dp"
+            android:layout_marginTop="140dp"
             android:layout_centerHorizontal="true"
             android:scaleType="matrix"/>
 
@@ -21,73 +21,80 @@
             android:id="@+id/space"
             android:layout_centerHorizontal="true"
             android:layout_alignParentTop="true"
-            android:layout_marginTop="59dp"/>
+            android:layout_marginTop="65dp"/>
 
     <ImageButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:src="@drawable/candle"
         android:id="@+id/imageButton_Candle"
-        android:layout_alignRight="@+id/space"
-        android:layout_marginTop="18dp"/>
+        android:layout_toLeftOf="@+id/space"
+        android:layout_alignTop="@+id/imageButton_Area"/>
 
     <ImageButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:src="@drawable/column"
         android:id="@+id/imageButton_Column"
-        android:layout_marginTop="18dp"
-        android:layout_toLeftOf="@id/imageButton_Candle"/>
+        android:layout_toLeftOf="@+id/imageButton_Candle"
+        android:layout_alignTop="@+id/imageButton_Candle"/>
 
     <ImageButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:src="@drawable/linebar"
         android:id="@+id/imageButton_bar"
-        android:layout_marginTop="18dp"
-        android:layout_toLeftOf="@id/imageButton_Column"/>
+        android:layout_toLeftOf="@+id/imageButton_Column"
+        android:layout_alignTop="@+id/imageButton_Column"/>
 
     <ImageButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@drawable/bubble"
             android:id="@+id/imageButton_Bubble"
-            android:layout_marginTop="18dp"
-            android:layout_toLeftOf="@id/imageButton_bar"/>
+            android:layout_toLeftOf="@+id/imageButton_bar"
+            android:layout_alignTop="@+id/imageButton_bar"/>
 
     <ImageButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@drawable/area"
             android:id="@+id/imageButton_Area"
-            android:layout_alignLeft="@+id/space"
-            android:layout_marginTop="18dp"/>
+            android:layout_toRightOf="@+id/space"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="48dp"/>
 
     <ImageButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@drawable/pie"
             android:id="@+id/imageButton_Pie"
-            android:layout_marginTop="18dp"
-            android:layout_toRightOf="@id/imageButton_Area"/>
+            android:layout_toRightOf="@+id/imageButton_Area"
+            android:layout_alignTop="@+id/imageButton_Area"/>
 
     <ImageButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@drawable/treemap"
             android:id="@+id/imageButton_Map"
-            android:layout_marginTop="18dp"
-            android:layout_toRightOf="@id/imageButton_Pie"/>
+            android:layout_toRightOf="@+id/imageButton_Pie"
+            android:layout_alignTop="@+id/imageButton_Pie"/>
 
     <ImageButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@drawable/dashboard"
             android:id="@+id/imageButton_DashBoard"
-            android:layout_marginTop="18dp"
-            android:layout_toRightOf="@id/imageButton_Map"/>
-
-
+            android:layout_toRightOf="@+id/imageButton_Map"
+            android:layout_alignTop="@+id/imageButton_Map"/>
+    <Button
+            android:layout_width="wrap_content"
+            android:layout_height="32dp"
+            android:text="Settings..."
+            android:id="@+id/button_Settings"
+            android:layout_toRightOf="@+id/imageButton_Map" android:layout_alignParentTop="true"
+            android:layout_marginTop="6dp" android:typeface="normal" android:textSize="8dp"
+            />
 
 
 </RelativeLayout>

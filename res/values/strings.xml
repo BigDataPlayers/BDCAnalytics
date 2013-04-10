@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">BDCAnalytics</string>
+    <string name="button_Settings">New Button</string>
     <string-array name="charts_array">
         <item>Area Chart</item>
         <item>Line Chart</item>

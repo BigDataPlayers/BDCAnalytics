@@ -1,23 +1,20 @@
 package com.bdc.analytics.androidClient;
 
 import android.app.Activity;
-
 import android.content.Intent;
-import android.os.Bundle;
-
+import android.content.SharedPreferences;
 import android.graphics.Matrix;
 import android.graphics.PointF;
+import android.os.Bundle;
 import android.util.FloatMath;
 import android.util.Log;
-
 import android.view.MotionEvent;
 import android.view.View;
-
 import android.webkit.WebSettings;
 import android.webkit.WebView;
-
-import android.widget.*;
-import com.example.BDCAnalytics.R;
+import android.widget.Button;
+import android.widget.ImageButton;
+import android.widget.ImageView;
 
 
 public class MyActivity extends Activity implements View.OnTouchListener
@@ -25,6 +22,7 @@ public class MyActivity extends Activity implements View.OnTouchListener
     private static final String TAG = "MyActivity";
 
     ImageButton ibBubble, ibColumn, ibPie, ibBar, ibArea, ibMap, ibDashBoard, ibCandle;
+    Button bSettings ;
     WebView web = null;
 
     // These matrices will be used to move and zoom image
@@ -76,7 +74,7 @@ public class MyActivity extends Activity implements View.OnTouchListener
 
             @Override
             public void onNothingSelected(AdapterView<?> adapterView) {
-                //To change body of implemented methods use File | Settings | File Templates.
+                //To change body of implemented methods use File | settings | File Templates.
             }
         });
 */
@@ -84,7 +82,7 @@ public class MyActivity extends Activity implements View.OnTouchListener
         WebSettings webSettings = web.getSettings();
         webSettings.setJavaScriptEnabled(true);
         web.setVisibility(View.GONE);
-        web.loadUrl(AndroidConstants.ANALYTICS_SERVER + "/ChartType=bubbleChart");
+        web.loadUrl(getWebURL() + "/ChartType=bubbleChart");
 
 
         ibBubble = (ImageButton) findViewById(R.id.imageButton_Bubble);
@@ -95,6 +93,7 @@ public class MyActivity extends Activity implements View.OnTouchListener
         ibMap = (ImageButton) findViewById(R.id.imageButton_Map);
         ibDashBoard = (ImageButton) findViewById(R.id.imageButton_DashBoard);
         ibCandle = (ImageButton) findViewById(R.id.imageButton_Candle);
+        bSettings = (Button) findViewById(R.id.button_Settings);
 
         ibBubble.setOnClickListener(new ButtonListener("bubbleChart"));
         ibColumn.setOnClickListener(new ButtonListener("barChart"));
@@ -104,13 +103,20 @@ public class MyActivity extends Activity implements View.OnTouchListener
         ibMap.setOnClickListener(new ButtonListener("treeMap"));
         ibDashBoard.setOnClickListener(new ButtonListener("dashBoard"));
         ibCandle.setOnClickListener(new ButtonListener("candleChart"));
+        bSettings.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent gotoNextActivity = new Intent(getApplicationContext(), SettingsActivity.class);
+                startActivity(gotoNextActivity);
+            }
+        });
 
     }
 
 
     void downloadFile(String charType) {
 
-        System.out.println("Request URL:: "+ AndroidConstants.ANALYTICS_SERVER +"/ChartType=" + charType);
+        System.out.println("Request URL:: "+ getWebURL() +"/ChartType=" + charType);
         if (charType.equals("geoChart")) {
             Intent gotoNextActivity = new Intent(getApplicationContext(), MapActivity.class);
             // Intent goToNextActivity = new Intent(getApplicationContext(), ImageMenu.class);
@@ -120,11 +126,14 @@ public class MyActivity extends Activity implements View.OnTouchListener
             web.setVisibility(View.VISIBLE);
             web.setVerticalScrollBarEnabled(true);
             web.setHorizontalScrollBarEnabled(true);
-            web.loadUrl(AndroidConstants.ANALYTICS_SERVER + "/ChartType=" + charType);
+            web.loadUrl(getWebURL() + "/ChartType=" + charType);
 
         }
+    }
 
-
+    private String getWebURL () {
+        SharedPreferences settings = getSharedPreferences(AndroidConstants.ANALYTICS_SERVER_PREF, 0);
+        return settings.getString(AndroidConstants.WEB_URL, AndroidConstants.DEFAULT_ANALYTICS_SERVER);
     }
 
     @Override

@@ -6,14 +6,14 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
-import com.example.BDCAnalytics.R;
+
 
 /**
  * Created with IntelliJ IDEA.
  * User: mahesh1
  * Date: 1/12/13
  * Time: 10:04 PM
- * To change this template use File | Settings | File Templates.
+ * To change this template use File | settings | File Templates.
  */
 public class ImageMenu extends Activity {
     public void onCreate(Bundle savedInstanceState) {

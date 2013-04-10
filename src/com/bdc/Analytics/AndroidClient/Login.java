@@ -5,14 +5,14 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import com.example.BDCAnalytics.R;
+
 
 /**
  * Created with IntelliJ IDEA.
  * User: mahesh1
  * Date: 1/12/13
  * Time: 5:39 PM
- * To change this template use File | Settings | File Templates.
+ * To change this template use File | settings | File Templates.
  */
 public class Login extends Activity {
     public void onCreate(Bundle savedInstanceState) {

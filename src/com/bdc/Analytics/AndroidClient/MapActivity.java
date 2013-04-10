@@ -7,7 +7,6 @@ import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.os.Handler;
 import android.widget.ImageView;
-import com.example.BDCAnalytics.R;
 
 import java.io.IOException;
 import java.io.InputStream;
