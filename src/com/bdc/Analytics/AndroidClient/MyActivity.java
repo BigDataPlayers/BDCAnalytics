@@ -1,6 +1,7 @@
 package com.bdc.analytics.androidClient;
 
 import android.app.Activity;
+
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Matrix;
@@ -16,13 +17,13 @@ import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 
+import java.io.FileInputStream;
 
-public class MyActivity extends Activity implements View.OnTouchListener
-{
+public class MyActivity extends Activity implements View.OnTouchListener {
     private static final String TAG = "MyActivity";
 
     ImageButton ibBubble, ibColumn, ibPie, ibBar, ibArea, ibMap, ibDashBoard, ibCandle;
-    Button bSettings ;
+    Button bSettings;
     WebView web = null;
 
     // These matrices will be used to move and zoom image
@@ -52,32 +53,10 @@ public class MyActivity extends Activity implements View.OnTouchListener
 
     {
         // activity = this;
-     super.onCreate(savedInstanceState);
-     setContentView(R.layout.main);
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.main);
+        init();
 
-//        detailListView = (RelativeLayout) findViewById(R.id.layout);
-        /*spinner = (Spinner) findViewById(R.id.spinner);
-        // Create an ArrayAdapter using the string array and a default spinner layout
-        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.charts_array, analytics.R.layout.simple_spinner_item);
-        // Specify the layout to use when the list of choices appears
-        adapter.setDropDownViewResource(analytics.R.layout.simple_spinner_dropdown_item);
-        // Apply the adapter to the spinner
-        spinner.setAdapter(adapter);
-               spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-
-                 currentSpinnerSelection = adapterView.getItemAtPosition(i).toString();
-//                System.out.println("Spinner Selection:" + currentSpinnerSelection);
-
-            }
-
-            @Override
-            public void onNothingSelected(AdapterView<?> adapterView) {
-                //To change body of implemented methods use File | settings | File Templates.
-            }
-        });
-*/
         web = (WebView) findViewById(R.id.webView);
         WebSettings webSettings = web.getSettings();
         webSettings.setJavaScriptEnabled(true);
@@ -116,7 +95,7 @@ public class MyActivity extends Activity implements View.OnTouchListener
 
     void downloadFile(String charType) {
 
-        System.out.println("Request URL:: "+ getWebURL() +"/ChartType=" + charType);
+        System.out.println("Request URL:: " + getWebURL() + "/ChartType=" + charType);
         if (charType.equals("geoChart")) {
             Intent gotoNextActivity = new Intent(getApplicationContext(), MapActivity.class);
             // Intent goToNextActivity = new Intent(getApplicationContext(), ImageMenu.class);
@@ -131,9 +110,34 @@ public class MyActivity extends Activity implements View.OnTouchListener
         }
     }
 
-    private String getWebURL () {
+    private String getWebURL() {
         SharedPreferences settings = getSharedPreferences(AndroidConstants.ANALYTICS_SERVER_PREF, 0);
         return settings.getString(AndroidConstants.WEB_URL, AndroidConstants.DEFAULT_ANALYTICS_SERVER);
+    }
+
+    private void init() {
+        String webURL = readFromSettings();
+        if (webURL == null) webURL = AndroidConstants.DEFAULT_ANALYTICS_SERVER ;
+
+        SharedPreferences settings = getSharedPreferences(AndroidConstants.ANALYTICS_SERVER_PREF, 0);
+        SharedPreferences.Editor editor = settings.edit();
+        editor.putString(AndroidConstants.WEB_URL, webURL.toString());
+        editor.commit();
+    }
+
+    private String readFromSettings (){
+        String webURL = null;
+        int ch;
+        StringBuffer strContent = new StringBuffer("");
+        try {
+            FileInputStream ios = openFileInput(AndroidConstants.FILENAME);
+            while ((ch = ios.read()) != -1)  strContent.append((char) ch);
+            ios.close();
+            webURL = strContent.toString() ;
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+      return webURL;
     }
 
     @Override
@@ -146,13 +150,13 @@ public class MyActivity extends Activity implements View.OnTouchListener
             case MotionEvent.ACTION_DOWN:
                 savedMatrix.set(matrix);
                 start.set(event.getX(), event.getY());
-                Log.d(TAG, "mode=DRAG" );
+                Log.d(TAG, "mode=DRAG");
                 mode = DRAG;
                 break;
             case MotionEvent.ACTION_UP:
             case MotionEvent.ACTION_POINTER_UP:
                 mode = NONE;
-                Log.d(TAG, "mode=NONE" );
+                Log.d(TAG, "mode=NONE");
                 break;
             case MotionEvent.ACTION_POINTER_DOWN:
                 oldDist = spacing(event);
@@ -161,14 +165,13 @@ public class MyActivity extends Activity implements View.OnTouchListener
                     savedMatrix.set(matrix);
                     midPoint(mid, event);
                     mode = ZOOM;
-                    Log.d(TAG, "mode=ZOOM" );
+                    Log.d(TAG, "mode=ZOOM");
                 }
             case MotionEvent.ACTION_MOVE:
                 if (mode == DRAG) {
                     matrix.set(savedMatrix);
                     matrix.postTranslate(event.getX() - start.x, event.getY() - start.y);
-                }
-                else if (mode == ZOOM) {
+                } else if (mode == ZOOM) {
                     float newDist = spacing(event);
                     Log.d(TAG, "newDist=" + newDist);
                     if (newDist > 10f) {
@@ -191,6 +194,7 @@ public class MyActivity extends Activity implements View.OnTouchListener
         float y = event.getY(0) - event.getY(1);
         return FloatMath.sqrt(x * x + y * y);
     }
+
     private void midPoint(PointF point, MotionEvent event) {
         float x = event.getX(0) + event.getX(1);
         float y = event.getY(0) + event.getY(1);
@@ -319,29 +323,31 @@ public class MyActivity extends Activity implements View.OnTouchListener
         }
     }  */
 
-    /** Show an event in the LogCat view, for debugging */
+    /**
+     * Show an event in the LogCat view, for debugging
+     */
     private void dumpEvent(MotionEvent event) {
-        String names[] = { "DOWN" , "UP" , "MOVE" , "CANCEL" , "OUTSIDE","POINTER_DOWN" , "POINTER_UP" , "7?" , "8?" , "9?" };
+        String names[] = {"DOWN", "UP", "MOVE", "CANCEL", "OUTSIDE", "POINTER_DOWN", "POINTER_UP", "7?", "8?", "9?"};
         StringBuilder sb = new StringBuilder();
         int action = event.getAction();
         int actionCode = action & MotionEvent.ACTION_MASK;
-        sb.append("event ACTION_" ).append(names[actionCode]);
+        sb.append("event ACTION_").append(names[actionCode]);
         if (actionCode == MotionEvent.ACTION_POINTER_DOWN
                 || actionCode == MotionEvent.ACTION_POINTER_UP) {
-            sb.append("(pid " ).append(
+            sb.append("(pid ").append(
                     action >> MotionEvent.ACTION_POINTER_ID_SHIFT);
-            sb.append(")" );
+            sb.append(")");
         }
-        sb.append("[" );
+        sb.append("[");
         for (int i = 0; i < event.getPointerCount(); i++) {
-            sb.append("#" ).append(i);
-            sb.append("(pid " ).append(event.getPointerId(i));
-            sb.append(")=" ).append((int) event.getX(i));
-            sb.append("," ).append((int) event.getY(i));
+            sb.append("#").append(i);
+            sb.append("(pid ").append(event.getPointerId(i));
+            sb.append(")=").append((int) event.getX(i));
+            sb.append(",").append((int) event.getY(i));
             if (i + 1 < event.getPointerCount())
-                sb.append(";" );
+                sb.append(";");
         }
-        sb.append("]" );
+        sb.append("]");
         Log.d(TAG, sb.toString());
     }
 

@@ -18,18 +18,17 @@
             android:textSize="10dp" android:layout_toRightOf="@+id/space" android:layout_alignParentTop="true"
             android:layout_marginTop="16dp"/>
     <Button
-            android:layout_width="64dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="OK"
-            android:id="@+id/button_OK"
+            android:text="Save for this Session"
+            android:id="@+id/button_session"
             android:layout_alignLeft="@+id/space" android:layout_alignParentTop="true" android:layout_marginTop="89dp"/>
     <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Cancel"
-            android:id="@+id/button_cancel"
-            android:layout_alignParentLeft="true" android:layout_marginLeft="479dp"
-            android:layout_alignTop="@+id/button_OK"/>
+            android:text="Save Permenantly"
+            android:id="@+id/button_perm"
+            android:layout_alignTop="@+id/button_session" android:layout_toRightOf="@+id/button_session"/>
     <Space
             android:layout_width="20px"
             android:layout_height="20px"
