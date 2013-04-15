@@ -18,21 +18,30 @@ import java.io.FileOutputStream;
  * To change this template use File | settings | File Templates.
  */
 public class SettingsActivity extends Activity {
+    Button button, button1, button2 ;
 
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.settings);
 
+        setEditText (getURL()) ;
 
-        Button button = (Button) findViewById(R.id.button_session);
+        button = (Button) findViewById(R.id.button_session);
         button.setOnClickListener(new Button.OnClickListener() {
             public void onClick(View view) {
-                setSharedSource();
+                SharedPreferences settings = getSharedPreferences(AndroidConstants.ANALYTICS_SERVER_PREF, 0);
+                SharedPreferences.Editor editor = settings.edit();
+
+                EditText text = (EditText) findViewById(R.id.editText_Settings);
+                editor.putString(AndroidConstants.WEB_URL, text.getText().toString());
+
+                // Commit the edits!
+                editor.commit();
                 finish();
             }
         });
 
-        Button button1 = (Button) findViewById(R.id.button_perm);
+        button1 = (Button) findViewById(R.id.button_perm);
         button1.setOnClickListener(new Button.OnClickListener() {
             public void onClick(View view) {
                 try {
@@ -40,7 +49,21 @@ public class SettingsActivity extends Activity {
                     EditText text = (EditText) findViewById(R.id.editText_Settings);
                     fos.write(text.getText().toString().getBytes());
                     fos.close();
-                    setSharedSource();
+                    button.performClick();
+                } catch (Exception ex) {
+                    ex.printStackTrace();
+                }
+
+                finish();
+            }
+        });
+
+        button2 = (Button) findViewById(R.id.button_restore);
+        button2.setOnClickListener(new Button.OnClickListener() {
+            public void onClick(View view) {
+                try {
+                    setEditText(AndroidConstants.DEFAULT_ANALYTICS_SERVER);
+                    button1.performClick();
                 } catch (Exception ex) {
                     ex.printStackTrace();
                 }
@@ -51,16 +74,13 @@ public class SettingsActivity extends Activity {
 
     }
 
-    private void setSharedSource (){
+    private String getURL(){
         SharedPreferences settings = getSharedPreferences(AndroidConstants.ANALYTICS_SERVER_PREF, 0);
-        SharedPreferences.Editor editor = settings.edit();
-
-        EditText text = (EditText) findViewById(R.id.editText_Settings);
-        editor.putString(AndroidConstants.WEB_URL, text.getText().toString());
-
-        // Commit the edits!
-        editor.commit();
-
+        return settings.getString(AndroidConstants.WEB_URL, AndroidConstants.DEFAULT_ANALYTICS_SERVER);
     }
 
+    private void setEditText (String str) {
+        EditText text = (EditText) findViewById(R.id.editText_Settings);
+        text.setText(str, EditText.BufferType.EDITABLE);
+    }
 }

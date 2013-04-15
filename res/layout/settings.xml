@@ -10,29 +10,33 @@
             android:layout_height="wrap_content"
             android:text="Web Server URL:"
             android:id="@+id/textView" android:layout_gravity="left|center_vertical"
-            android:layout_alignRight="@+id/space" android:layout_alignBaseline="@+id/editText_Settings"/>
+            android:layout_alignParentLeft="true" android:layout_marginLeft="9dp"
+            android:layout_alignBaseline="@+id/editText_Settings"/>
     <EditText
             android:layout_width="313dp"
             android:layout_height="wrap_content"
             android:id="@+id/editText_Settings" android:layout_gravity="center"
-            android:textSize="10dp" android:layout_toRightOf="@+id/space" android:layout_alignParentTop="true"
-            android:layout_marginTop="16dp"/>
+            android:textSize="10dp"
+            android:layout_alignParentLeft="true" android:layout_marginLeft="125dp" android:layout_alignParentTop="true"
+            android:layout_marginTop="60dp"/>
     <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Save for this Session"
             android:id="@+id/button_session"
-            android:layout_alignLeft="@+id/space" android:layout_alignParentTop="true" android:layout_marginTop="89dp"/>
+            android:layout_alignLeft="@+id/editText_Settings" android:layout_below="@+id/editText_Settings"
+            android:typeface="normal" android:textSize="12dp"/>
     <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Save Permenantly"
             android:id="@+id/button_perm"
-            android:layout_alignTop="@+id/button_session" android:layout_toRightOf="@+id/button_session"/>
-    <Space
-            android:layout_width="20px"
-            android:layout_height="20px"
-            android:id="@+id/space"
-            android:layout_centerHorizontal="true"
-            android:layout_centerVertical="true"/>
+            android:textSize="12dp" android:layout_toRightOf="@+id/button_session"
+            android:layout_below="@+id/editText_Settings"/>
+    <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Restore"
+            android:id="@+id/button_restore" android:layout_toRightOf="@+id/button_perm"
+            android:layout_below="@+id/editText_Settings" android:textSize="12dp"/>
 </RelativeLayout>
