@@ -1,0 +1,105 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <title>pieChart</title>
+  <meta http-equiv="content-type" content="text/html;charset=utf-8" />
+  <style type="text/css">
+    body {
+          color: #444444;
+          font-family: Arial,Helvetica,sans-serif;
+          font-size: 75%;
+    }
+    a {
+          color: #4D87C7;
+          text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+ <!-- PieChart generated in R 2.15.2 by googleVis 0.3.3 package -->
+<!-- Fri Jan 18 09:47:02 2013 -->
+
+
+<!-- jsHeader -->
+<script type="text/javascript" src="http://www.google.com/jsapi">
+</script>
+<script type="text/javascript">
+ 
+// jsData 
+function gvisDatapieChart ()
+{
+  var data = new google.visualization.DataTable();
+  var datajson =
+[
+ [
+ "<20 Years",
+15 
+],
+[
+ "20-30 Years",
+25 
+],
+[
+ "30-40 Years",
+40 
+],
+[
+ "40-60 Years",
+15 
+],
+[
+ ">60 Years",
+5 
+] 
+];
+data.addColumn('string','Age');
+data.addColumn('number','PercentClicks');
+data.addRows(datajson);
+return(data);
+}
+ 
+// jsDrawChart
+function drawChartpieChart() {
+  var data = gvisDatapieChart();
+  var options = {};
+options["allowHtml"] = true;
+options["title"] = "Clicks by Age Group";
+options["titleTextStyle"] = {fontName:'Courier',fontSize:24};
+
+     var chart = new google.visualization.PieChart(
+       document.getElementById('pieChart')
+     );
+     chart.draw(data,options);
+    
+
+}
+  
+ 
+// jsDisplayChart 
+function displayChartpieChart()
+{
+  google.load("visualization", "1", { packages:["corechart"] }); 
+  google.setOnLoadCallback(drawChartpieChart);
+}
+ 
+// jsChart 
+displayChartpieChart()
+ 
+<!-- jsFooter -->  
+//-->
+</script>
+ 
+<!-- divChart -->
+  
+<div id="pieChart"
+  style="width: 600px; height: 500px;">
+</div>
+ <div><span>Data: pieChart &#8226; Chart ID: <a href="Chart_pieChart.html">pieChart</a></span><br /> 
+<!-- htmlFooter -->
+<span> 
+R version 2.15.2 (2012-10-26) &#8226; <a href="http://code.google.com/p/google-motion-charts-with-r/">googleVis-0.3.3</a>
+&#8226; <a href="https://developers.google.com/terms/">Google Terms of Use</a> &#8226; <a href="https://google-developers.appspot.com/chart/interactive/docs/gallery/piechart.html#Data_Policy">Data Policy</a>
+</span></div>
+</body>
+</html>

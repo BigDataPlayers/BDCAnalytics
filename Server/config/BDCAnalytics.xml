@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+
+    <bean id="ServiceList" class="com.bdc.container.bootstrap.ServiceList">
+        <property name="listServices">
+          <list>
+              <ref bean="BDCAnalytics" />
+          </list>
+        </property>
+
+    </bean>
+
+    <bean id="mbeanServer" class="org.springframework.jmx.support.MBeanServerFactoryBean"> </bean>
+
+    <bean id="exporter" class="org.springframework.jmx.export.MBeanExporter" lazy-init="false">
+         <property name="server" ref="mbeanServer"/>
+        <property name="autodetect" value="true"/>
+
+    </bean>
+
+    <bean id="BDCAnalytics" class="com.bdc.container.webservice.WebServer">
+        <property name="port" value="80"/>
+        <property name="processor" ref="AnalyticsPublisher"/>
+    </bean>
+    <bean id="AnalyticsPublisher" class="com.bdc.analytics.server.AnalyticsPublisher">
+        <property name="rootDir" value="../htmls/"/>
+    </bean>
+
+    <!--<bean id="bubbleChart" class="com.bdc.analytics.server.ChartBuilder">-->
+        <!--<property name="commandList" >-->
+            <!--<list>-->
+                <!--<value> "bubbleChart &lt;- read.csv(.\csv\bubbleChart.csv\", header=TRUE,sep=\",\")" </value>-->
+                <!--<value> "M =gvisBubbleChart(data=bubbleChart, idvar = \"ID\", xvar = \"Age\", yvar = \"Click.Rate\",sizevar=\"Click.Rate\",  colorvar = \"ID\",list(title=\"Correlation between Age,Click Rate and Clicks of some states\",titleTextStyle=\"{color:'black',fontName:'Courier',fontSize:24}\",vAxis= \"{title: 'Clicks Rate',titleTextStyle: {color:'blue',fontSize: '20'}}\",hAxis= \"{title: 'Age',titleTextStyle: {color:'blue',fontSize: '20'}}\"),chartid=\"bubbleChart\")"</value>-->
+                <!--<value> "plot(M)"</value>-->
+                <!--<value> "cat(unlist(M$html), file=.\htmls\bubbleChart.html\")"</value>-->
+            <!--</list>-->
+        <!--</property>-->
+    <!--</bean>-->
+</beans>

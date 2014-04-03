@@ -1,0 +1,124 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <title>candleChart</title>
+  <meta http-equiv="content-type" content="text/html;charset=utf-8" />
+  <style type="text/css">
+    body {
+          color: #444444;
+          font-family: Arial,Helvetica,sans-serif;
+          font-size: 75%;
+    }
+    a {
+          color: #4D87C7;
+          text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+ <!-- CandlestickChart generated in R 2.15.2 by googleVis 0.3.3 package -->
+<!-- Fri Jan 18 09:47:33 2013 -->
+
+
+<!-- jsHeader -->
+<script type="text/javascript" src="http://www.google.com/jsapi">
+</script>
+<script type="text/javascript">
+ 
+// jsData 
+function gvisDatacandleChart ()
+{
+  var data = new google.visualization.DataTable();
+  var datajson =
+[
+ [
+ "Save $10 on 3 Can't-Miss Valentine's Bestsellers",
+2,
+2.8,
+3.8,
+4.5 
+],
+[
+ "SAVE 40% on Valentine's Bestsellers! While Supplies Last!",
+3.1,
+3.8,
+5.5,
+6.6 
+],
+[
+ "Thanks for letting us help you make someone smile",
+5,
+5.5,
+7.7,
+8 
+],
+[
+ "Valentines Free Shipping",
+5,
+7.7,
+6.6,
+7.7 
+],
+[
+ "Welcome! Thanks for letting us help you make someone smile",
+1.5,
+6.6,
+2.2,
+6.8 
+] 
+];
+data.addColumn('string','Campaign');
+data.addColumn('number','Low');
+data.addColumn('number','Open');
+data.addColumn('number','Close');
+data.addColumn('number','High');
+data.addRows(datajson);
+return(data);
+}
+ 
+// jsDrawChart
+function drawChartcandleChart() {
+  var data = gvisDatacandleChart();
+  var options = {};
+options["allowHtml"] = true;
+options["title"] = "Campaign Clicks - Variations";
+options["titleTextStyle"] = {color:'black',fontName:'Courier',fontSize:20};
+options["legend"] = "none";
+
+     var chart = new google.visualization.CandlestickChart(
+       document.getElementById('candleChart')
+     );
+     chart.draw(data,options);
+    
+
+}
+  
+ 
+// jsDisplayChart 
+function displayChartcandleChart()
+{
+  google.load("visualization", "1", { packages:["corechart"] }); 
+  google.setOnLoadCallback(drawChartcandleChart);
+}
+ 
+// jsChart 
+displayChartcandleChart()
+ 
+<!-- jsFooter -->  
+//-->
+</script>
+ 
+<!-- divChart -->
+  
+<div id="candleChart"
+  style="width: 600px; height: 500px;">
+</div>
+ <div><span>Data: data &#8226; Chart ID: <a href="Chart_candleChart.html">candleChart</a></span><br /> 
+<!-- htmlFooter -->
+<span> 
+R version 2.15.2 (2012-10-26) &#8226; <a href="http://code.google.com/p/google-motion-charts-with-r/">googleVis-0.3.3</a>
+&#8226; <a href="https://developers.google.com/terms/">Google Terms of Use</a> &#8226; <a href="https://google-developers.appspot.com/chart/interactive/docs/gallery/candlestickchart.html#Data_Policy">Data Policy</a>
+</span></div>
+</body>
+</html>

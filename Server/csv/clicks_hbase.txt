@@ -1,0 +1,50 @@
+name,name_abbrev,clicks
+alabama,ala,15
+arizona,ariz,52
+arkansas,ark,5
+california,calif,697
+colorado,colo,53
+connecticut,conn,210
+delaware,dela,50
+district of columbia,d.c.,294
+florida,fla,199
+georgia,ga,187
+idaho,idaho,12
+illinois,ill,569
+indiana,ind,76
+iowa,iowa,9
+kansas,kan,7
+kentucky,ky,47
+louisiana,la,56
+maine,maine,17
+maryland,md,107
+massachusetts,mass,411
+michigan,mich,157
+minnesota,minn,58
+mississippi,miss,5
+missouri,mo,7
+montana,mont,1
+nebraska,neb,56
+nevada,nev,112
+new hampshire,nh,52
+new jersey,nj,498
+new mexico,nm,19
+new york,ny,595
+north carolina,nc,293
+north dakota,nd,5
+ohio,ohio,234
+oklahoma,okla,56
+oregon,ore,125
+pennsylvania,pa,398
+rhode island,ri,5
+south carolina,sc,4
+south dakota,sd,5
+tennessee,tenn,55
+texas,texas,394
+utah,utah,57
+vermont,vt,21
+virginia,va,108
+washington,wash,325
+west virginia,wva,5
+wisconsin,wis,84
+wyoming,wyo,4

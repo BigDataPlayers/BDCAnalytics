@@ -1,0 +1,170 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <title>ILoveFruit</title>
+  <meta http-equiv="content-type" content="text/html;charset=utf-8" />
+  <style type="text/css">
+    body {
+          color: #444444;
+          font-family: Arial,Helvetica,sans-serif;
+          font-size: 75%;
+    }
+    a {
+          color: #4D87C7;
+          text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+ <!-- MotionChart generated in R 2.15.2 by googleVis 0.3.3 package -->
+<!-- Tue Jan 15 11:15:07 2013 -->
+
+
+<!-- jsHeader -->
+<script type="text/javascript" src="http://www.google.com/jsapi">
+</script>
+<script type="text/javascript">
+ 
+// jsData 
+function gvisDataILoveFruit ()
+{
+  var data = new google.visualization.DataTable();
+  var datajson =
+[
+ [
+ "Apples",
+new Date(2008,11,31),
+"West",
+98,
+78,
+20,
+2008 
+],
+[
+ "Apples",
+new Date(2009,11,31),
+"West",
+111,
+79,
+32,
+2009 
+],
+[
+ "Apples",
+new Date(2010,11,31),
+"West",
+89,
+76,
+13,
+2010 
+],
+[
+ "Oranges",
+new Date(2008,11,31),
+"East",
+96,
+81,
+15,
+2008 
+],
+[
+ "Bananas",
+new Date(2008,11,31),
+"East",
+85,
+76,
+9,
+2008 
+],
+[
+ "Oranges",
+new Date(2009,11,31),
+"East",
+93,
+80,
+13,
+2009 
+],
+[
+ "Bananas",
+new Date(2009,11,31),
+"East",
+94,
+78,
+16,
+2009 
+],
+[
+ "Oranges",
+new Date(2010,11,31),
+"East",
+98,
+91,
+7,
+2010 
+],
+[
+ "Bananas",
+new Date(2010,11,31),
+"East",
+81,
+71,
+10,
+2010 
+] 
+];
+data.addColumn('string','Fruit');
+data.addColumn('date','Date');
+data.addColumn('string','Location');
+data.addColumn('number','Sales');
+data.addColumn('number','Expenses');
+data.addColumn('number','Profit');
+data.addColumn('number','Year');
+data.addRows(datajson);
+return(data);
+}
+ 
+// jsDrawChart
+function drawChartILoveFruit() {
+  var data = gvisDataILoveFruit();
+  var options = {};
+options["width"] =    600;
+options["height"] =    600;
+
+     var chart = new google.visualization.MotionChart(
+       document.getElementById('ILoveFruit')
+     );
+     chart.draw(data,options);
+    
+
+}
+  
+ 
+// jsDisplayChart 
+function displayChartILoveFruit()
+{
+  google.load("visualization", "1", { packages:["motionchart"] }); 
+  google.setOnLoadCallback(drawChartILoveFruit);
+}
+ 
+// jsChart 
+displayChartILoveFruit()
+ 
+<!-- jsFooter -->  
+//-->
+</script>
+ 
+<!-- divChart -->
+  
+<div id="ILoveFruit"
+  style="width: 600px; height: 600px;">
+</div>
+ <div><span>Data: Fruits &#8226; Chart ID: <a href="Chart_ILoveFruit.html">ILoveFruit</a></span><br /> 
+<!-- htmlFooter -->
+<span> 
+R version 2.15.2 (2012-10-26) &#8226; <a href="http://code.google.com/p/google-motion-charts-with-r/">googleVis-0.3.3</a>
+&#8226; <a href="https://developers.google.com/terms/">Google Terms of Use</a> &#8226; <a href="https://google-developers.appspot.com/chart/interactive/docs/gallery/motionchart.html#Data_Policy">Data Policy</a>
+</span></div>
+</body>
+</html>

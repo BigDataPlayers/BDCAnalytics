@@ -1,0 +1,129 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <title>columnChart</title>
+  <meta http-equiv="content-type" content="text/html;charset=utf-8" />
+  <style type="text/css">
+    body {
+          color: #444444;
+          font-family: Arial,Helvetica,sans-serif;
+          font-size: 75%;
+    }
+    a {
+          color: #4D87C7;
+          text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+ <!-- ColumnChart generated in R 2.15.2 by googleVis 0.3.3 package -->
+<!-- Fri Jan 18 09:46:46 2013 -->
+
+
+<!-- jsHeader -->
+<script type="text/javascript" src="http://www.google.com/jsapi">
+</script>
+<script type="text/javascript">
+ 
+// jsData 
+function gvisDatacolumnChart ()
+{
+  var data = new google.visualization.DataTable();
+  var datajson =
+[
+ [
+ "2009",
+169.75,
+350,
+79,
+150,
+100 
+],
+[
+ "2010",
+214.75,
+300,
+179,
+250,
+130 
+],
+[
+ "2011",
+224.75,
+370,
+119,
+290,
+120 
+],
+[
+ "2012",
+222.25,
+390,
+49,
+310,
+140 
+] 
+];
+data.addColumn('string','Year');
+data.addColumn('number','Mean');
+data.addColumn('number','American.Express');
+data.addColumn('number','JCPenny');
+data.addColumn('number','Victoria.s.Secret');
+data.addColumn('number','X1800Flower');
+data.addRows(datajson);
+return(data);
+}
+ 
+// jsDrawChart
+function drawChartcolumnChart() {
+  var data = gvisDatacolumnChart();
+  var options = {};
+options["allowHtml"] = true;
+options["seriesType"] = "bars";
+options["series"] = {0: {type:"line"}};
+options["title"] = "Sends by Affiliates";
+options["titleTextStyle"] = {color:'black',fontName:'Courier',fontSize:24};
+options["vAxis"] = {title: 'Sends(Millions)',viewWindowMode:'maximized',titleTextStyle: {color:'blue',fontSize: '20'}};
+options["hAxis"] = {title: 'Year',titleTextStyle: {color:'blue',fontSize: '20'}};
+options["curveType"] = "function";
+options["width"] =    800;
+options["height"] =    500;
+options["legend"] = {position: 'right', textStyle: {color: 'blue', fontSize: 12}};
+
+     var chart = new google.visualization.ColumnChart(
+       document.getElementById('columnChart')
+     );
+     chart.draw(data,options);
+    
+
+}
+  
+ 
+// jsDisplayChart 
+function displayChartcolumnChart()
+{
+  google.load("visualization", "1", { packages:["corechart"] }); 
+  google.setOnLoadCallback(drawChartcolumnChart);
+}
+ 
+// jsChart 
+displayChartcolumnChart()
+ 
+<!-- jsFooter -->  
+//-->
+</script>
+ 
+<!-- divChart -->
+  
+<div id="columnChart"
+  style="width: 800px; height: 500px;">
+</div>
+ <div><span>Data: data &#8226; Chart ID: <a href="Chart_columnChart.html">columnChart</a></span><br /> 
+<!-- htmlFooter -->
+<span> 
+R version 2.15.2 (2012-10-26) &#8226; <a href="http://code.google.com/p/google-motion-charts-with-r/">googleVis-0.3.3</a>
+&#8226; <a href="https://developers.google.com/terms/">Google Terms of Use</a> &#8226; <a href="https://google-developers.appspot.com/chart/interactive/docs/gallery/columnchart.html#Data_Policy">Data Policy</a>
+</span></div>
+</body>
+</html>

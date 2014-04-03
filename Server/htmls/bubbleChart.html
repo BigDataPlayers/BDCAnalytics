@@ -1,0 +1,145 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <title>bubbleChart</title>
+  <meta http-equiv="content-type" content="text/html;charset=utf-8" />
+  <style type="text/css">
+    body {
+          color: #444444;
+          font-family: Arial,Helvetica,sans-serif;
+          font-size: 75%;
+    }
+    a {
+          color: #4D87C7;
+          text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+ <!-- BubbleChart generated in R 2.15.2 by googleVis 0.3.3 package -->
+<!-- Fri Jan 18 09:46:41 2013 -->
+
+
+<!-- jsHeader -->
+<script type="text/javascript" src="http://www.google.com/jsapi">
+</script>
+<script type="text/javascript">
+ 
+// jsData 
+function gvisDatabubbleChart ()
+{
+  var data = new google.visualization.DataTable();
+  var datajson =
+[
+ [
+ "FL",
+70,
+4,
+"FL",
+4 
+],
+[
+ "CA",
+20,
+7,
+"CA",
+7 
+],
+[
+ "NY",
+30,
+6,
+"NY",
+6 
+],
+[
+ "NJ",
+40,
+5,
+"NJ",
+5 
+],
+[
+ "PA",
+58,
+3,
+"PA",
+3 
+],
+[
+ "MA",
+55,
+6,
+"MA",
+6 
+],
+[
+ "MI",
+45,
+3,
+"MI",
+3 
+],
+[
+ "IN",
+45,
+1,
+"IN",
+1 
+] 
+];
+data.addColumn('string','ID');
+data.addColumn('number','Age');
+data.addColumn('number','Click.Rate');
+data.addColumn('string','ID.1');
+data.addColumn('number','Click.Rate.1');
+data.addRows(datajson);
+return(data);
+}
+ 
+// jsDrawChart
+function drawChartbubbleChart() {
+  var data = gvisDatabubbleChart();
+  var options = {};
+options["title"] = "Correlation between Age,Click Rate and Clicks of some states";
+options["titleTextStyle"] = {color:'black',fontName:'Courier',fontSize:24};
+options["vAxis"] = {title: 'Clicks Rate',titleTextStyle: {color:'blue',fontSize: '20'}};
+options["hAxis"] = {title: 'Age',titleTextStyle: {color:'blue',fontSize: '20'}};
+
+     var chart = new google.visualization.BubbleChart(
+       document.getElementById('bubbleChart')
+     );
+     chart.draw(data,options);
+    
+
+}
+  
+ 
+// jsDisplayChart 
+function displayChartbubbleChart()
+{
+  google.load("visualization", "1", { packages:["corechart"] }); 
+  google.setOnLoadCallback(drawChartbubbleChart);
+}
+ 
+// jsChart 
+displayChartbubbleChart()
+ 
+<!-- jsFooter -->  
+//-->
+</script>
+ 
+<!-- divChart -->
+  
+<div id="bubbleChart"
+  style="width: 600px; height: 500px;">
+</div>
+ <div><span>Data: bubbleChart &#8226; Chart ID: <a href="Chart_bubbleChart.html">bubbleChart</a></span><br /> 
+<!-- htmlFooter -->
+<span> 
+R version 2.15.2 (2012-10-26) &#8226; <a href="http://code.google.com/p/google-motion-charts-with-r/">googleVis-0.3.3</a>
+&#8226; <a href="https://developers.google.com/terms/">Google Terms of Use</a> &#8226; <a href="https://google-developers.appspot.com/chart/interactive/docs/gallery/bubblechart.html#Data_Policy">Data Policy</a>
+</span></div>
+</body>
+</html>
